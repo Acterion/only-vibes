@@ -1,0 +1,20 @@
+name = "only-vibes"
+main = "worker/index.ts"
+compatibility_date = "2025-07-11"
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+command = "npm run build"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "only-vibes-db"
+database_id = "placeholder-will-be-created"
+
+[observability]
+enabled = true
+head_sampling_rate = 1
