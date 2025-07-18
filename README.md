@@ -1,19 +1,22 @@
 # Only Vibes - AI Prompting Competition Platform
 
-> **Phase 1 Complete**: Project Scaffold & Minimal SPA
+> **Phase 2 Complete**: Database Setup & Basic API
 
 A modern full-stack TypeScript application for AI prompting competitions, built with React, Cloudflare Workers, and D1 database.
 
-## 🎯 Current Status: Phase 1 Complete
+## 🎯 Current Status: Phase 2 Complete
 
 ✅ **Completed Deliverables:**
 - Modern React SPA with TypeScript
 - TailwindCSS styling with shadcn/ui components  
 - Cloudflare Worker serving static assets
-- Health endpoint (`/health`) returning JSON status
+- **NEW:** D1 Database with Drizzle ORM
+- **NEW:** `/api/challenges` endpoint with real data
+- **NEW:** Database migrations and seeding
+- Health endpoint (`/health`) returning JSON status (updated to Phase 2)
 - Navigation between Home and Challenges pages
-- DevTools panel (development only)
-- Mock data for challenges display
+- DevTools panel (development only) with API status
+- Real API integration replacing mock data
 - Production build system with Vite
 
 ## 🚀 Quick Start
@@ -32,26 +35,31 @@ npx wrangler dev
 # Visit http://localhost:8787
 ```
 
-## 🧪 Testing Phase 1
+## 🧪 Testing Phase 2
 
-### 1. Dev Server Test
+### 1. Dev Server Test (API proxies to worker)
 - Run `npm run dev`
 - Visit http://localhost:5173
 - ✅ Home page loads with gradient title and feature cards
-- ✅ Click "Challenges" → Shows challenges page with mock data
-- ✅ Navigation works between pages
-- ✅ DevTools panel visible in bottom-right
+- ✅ Click "Challenges" → Shows challenges page with **real data from API**
+- ✅ Navigation works between pages  
+- ✅ DevTools panel shows "API: healthy" status
+- ✅ Console shows: `✅ ChallengesPage mounted successfully` and `✅ Challenges fetched from API: 3`
 
-### 2. Worker Test  
+### 2. Worker Test (Full-stack)
 - Run `npx wrangler dev`
 - Visit http://localhost:8787
-- ✅ App loads and navigation works
+- ✅ App loads and navigation works with real data
 - Visit http://localhost:8787/health
-- ✅ Returns: `{"status":"healthy","phase":"1","timestamp":"...","version":"1.0.0"}`
+- ✅ Returns: `{"status":"healthy","phase":"2","timestamp":"...","version":"1.0.0"}`
+- Visit http://localhost:8787/api/challenges
+- ✅ Returns: Array of 3 challenge objects with all fields
 
-### 3. Console Verification
-- Open browser dev tools → Console
-- ✅ See logs: `✅ HomePage mounted successfully` / `✅ ChallengesPage mounted successfully`
+### 3. Database Test
+- ✅ D1 database created and configured
+- ✅ Drizzle migrations applied (local and remote)
+- ✅ Auto-seeding on first API call
+- ✅ Challenges, users, and submissions tables created
 
 ## 📁 Project Structure
 
@@ -92,22 +100,27 @@ only-vibes/
 
 ## 🎨 Features
 
-### Current (Phase 1)
+### Current (Phase 2)
 - ✅ Modern React SPA with TypeScript
 - ✅ Professional UI with shadcn/ui components (Button, Card)
 - ✅ Proper shadcn/ui installation and configuration
 - ✅ Stone color theme with dark mode support
 - ✅ Client-side routing
 - ✅ Cloudflare Worker hosting
-- ✅ Health monitoring endpoint
-- ✅ Development tools panel
-- ✅ Mock data display
+- ✅ **D1 Database with SQLite**
+- ✅ **Drizzle ORM with type safety**
+- ✅ **Database migrations and schema management**
+- ✅ **REST API endpoints (/api/challenges)**
+- ✅ **Real-time data fetching**
+- ✅ **Auto-seeding of sample data**
+- ✅ Health monitoring endpoint (Phase 2)
+- ✅ Development tools panel with API status
 - ✅ Responsive design
 
-### Coming Next (Phase 2)
-- 🚧 Database setup with D1 and Drizzle ORM
-- 🚧 API endpoints for challenges
-- 🚧 Real data fetching from database
+### Coming Next (Phase 3)
+- 🚧 User authentication and registration
+- 🚧 Challenge submission system
+- 🚧 Scoring and leaderboards
 
 ## 🔧 Configuration Files
 
@@ -144,25 +157,27 @@ npx shadcn@latest add form
 - **Icon Library**: Lucide
 - **Components Path**: `@/components/ui`
 
-## 📊 Phase 1 Validation
+## 📊 Phase 2 Validation
 
 | Test | Status | URL |
 |------|--------|-----|
 | Vite Dev Server | ✅ | http://localhost:5173 |
 | Worker Local | ✅ | http://localhost:8787 |
 | Health Endpoint | ✅ | http://localhost:8787/health |
+| **API Challenges** | ✅ | http://localhost:8787/api/challenges |
+| **Database Setup** | ✅ | D1 + Drizzle migrations applied |
+| **Real Data Integration** | ✅ | Frontend fetches from API |
 | Navigation | ✅ | Home ↔ Challenges |
-| DevTools Panel | ✅ | Bottom-right corner |
-| Console Logs | ✅ | Component mount messages |
-| Mock Data | ✅ | 3 sample challenges |
+| DevTools Panel | ✅ | Bottom-right corner + API status |
+| Console Logs | ✅ | Component mount + API fetch messages |
 
 ## 🏗 Next Steps
 
-1. **Phase 2**: Database Setup & Basic API
-   - Create D1 database schema
-   - Implement Drizzle migrations  
-   - Add `/api/challenges` endpoint
-   - Replace mock data with real API calls
+1. **Phase 3**: User Authentication & Submissions
+   - User registration and login system
+   - Secure challenge submission endpoints
+   - User session management
+   - Protected routes and authorization
 
 ---
 

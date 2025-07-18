@@ -13,7 +13,8 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "only-vibes-db"
-database_id = "placeholder-will-be-created"
+database_id = "d4303e3d-790a-41ed-b794-45c3b76c5c18"
+migrations_dir = "./drizzle/migrations"
 
 [observability]
 enabled = true

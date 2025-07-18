@@ -5,8 +5,8 @@ export interface Challenge {
   difficulty: "easy" | "medium" | "hard";
   category: string;
   expectedOutput: string;
-  createdAt: number;
-  updatedAt: number;
+  createdAt: Date | string;
+  updatedAt: Date | string;
 }
 
 export interface User {

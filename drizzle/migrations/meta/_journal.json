@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1752874708128,
+      "tag": "0000_watery_captain_cross",
+      "breakpoints": true
+    }
+  ]
+}
