@@ -1,10 +1,10 @@
 import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
-import { createId } from "@paralleldrive/cuid2";
+import { v7 as uuidv7 } from "uuid";
 
 export const users = sqliteTable("users", {
   id: text("id")
     .primaryKey()
-    .$defaultFn(() => createId()),
+    .$defaultFn(() => uuidv7()),
   username: text("username").notNull().unique(),
   email: text("email").notNull().unique(),
   passwordHash: text("password_hash").notNull(),
@@ -20,7 +20,7 @@ export const users = sqliteTable("users", {
 export const challenges = sqliteTable("challenges", {
   id: text("id")
     .primaryKey()
-    .$defaultFn(() => createId()),
+    .$defaultFn(() => uuidv7()),
   title: text("title").notNull(),
   description: text("description").notNull(),
   difficulty: text("difficulty", {
@@ -39,7 +39,7 @@ export const challenges = sqliteTable("challenges", {
 export const submissions = sqliteTable("submissions", {
   id: text("id")
     .primaryKey()
-    .$defaultFn(() => createId()),
+    .$defaultFn(() => uuidv7()),
   challengeId: text("challenge_id")
     .notNull()
     .references(() => challenges.id),

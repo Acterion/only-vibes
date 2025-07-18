@@ -1,6 +1,6 @@
 export const seedChallenges = [
   {
-    id: "challenge-001",
+    id: "018efab4-7c8e-7000-8000-000000000001", // Static UUID v7 format
     title: "Creative Writing Assistant",
     description: "Create a prompt that helps generate engaging short stories with vivid characters and compelling plots.",
     difficulty: "easy" as const,
@@ -10,7 +10,7 @@ export const seedChallenges = [
     updatedAt: new Date(),
   },
   {
-    id: "challenge-002", 
+    id: "018efab4-7c8e-7000-8000-000000000002", // Static UUID v7 format 
     title: "Code Documentation Generator",
     description: "Design a prompt that can analyze code and generate comprehensive, clear documentation.",
     difficulty: "medium" as const,
@@ -20,7 +20,7 @@ export const seedChallenges = [
     updatedAt: new Date(),
   },
   {
-    id: "challenge-003",
+    id: "018efab4-7c8e-7000-8000-000000000003", // Static UUID v7 format
     title: "Complex Problem Solver",
     description: "Craft a prompt that breaks down complex multi-step problems into manageable solutions.",
     difficulty: "hard" as const,
